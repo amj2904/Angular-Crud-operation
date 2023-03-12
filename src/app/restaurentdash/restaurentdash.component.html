@@ -1,0 +1,110 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container fluid">
+        <h2>Restaurent Record App</h2>
+        <div class="d-flex">
+             <button (click)="clickAddRestaurent()" class=" btn btn-success"  type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Restaurent</button>
+        </div>
+       
+    </div>
+</nav>
+
+<div class="p-5 mb-4 bg-light rounded-2">
+    <div class="container-fluid py-3">
+        <h1 class="display-5 fw-bold"> Restaurant Record Management</h1>
+
+      <a class="btn btn-primary btn-lg" target="_blank" type="button" href="#">Go To  Home Page</a>
+
+    </div>
+
+</div>
+<nav class="navbar" id="wd">
+  <input   type="text" name="nameSearch" [(ngModel)]="nameSearch" (ngModelChange)="search()" placeholder="Enter name to Search"/>
+</nav>
+<!--Table shown-->
+<table class="table table-dark mt-3">
+    <thead>
+        <tr>
+
+            <th (click)="sort('id')" class="bg-danger" scope="col">Restaurant ID &nbsp;<i class="fa fa-sort" aria-hidden="true"></i></th>
+            <th scope="col" class="bg-danger">Name</th>
+            <th scope="col" class="bg-danger">Email</th>
+            <th scope="col" class="bg-danger">Mobile</th>
+            <th scope="col" class="bg-danger">Address</th>
+            <th scope="col" class="bg-danger">Service</th>
+            <th scope="col" class="bg-danger">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of allRestaurentData | paginate:{ itemsPerPage:2,currentPage:page,totalItems:totalLength } | filter :nameSearch | orderBy:key:reverse">
+           <td>{{data.id}}</td>
+           <td>{{data.name}}</td>
+           <td>{{data.email}}</td>
+           <td>{{data.mobile}}</td>
+           <td>{{data.address}}</td>
+           <td>{{data.services}}</td>
+           <td>
+               <button (click)="onEditRestaurent(data)" class="btn btn-info" class=" btn btn-success"  type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>&nbsp;
+               <button (click)="deleteRestaurent(data)" class="btn btn-danger ">Delete</button>
+               
+           </td>
+         
+        </tr>
+      
+    </tbody>
+</table>
+<pagination-controls  class="text-center" (pageChange)="page= $event"></pagination-controls >
+
+<!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formValue">
+                <div class="mb-3">
+                  <label for="Name" class="form-label">Name</label>
+                  <input type="text" formControlName="name" class="form-control" id="Name" placeholder="Restaurent Name" aria-describedby="emailHelp">
+                  <br>
+                  <span class="text-danger" *ngIf="formValue.controls['name'].dirty && formValue.hasError('required','name')">*Name is required</span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="Email" class="form-label">Email</label>
+                    <input type="email" formControlName="email" class="form-control" id="Email" placeholder="Restaurent Email" aria-describedby="emailHelp">
+                    <span class="text-danger" *ngIf="formValue.controls['email'].dirty && formValue.hasError('required','email')">*email is Email</span>
+                  </div>
+                  <div class="mb-3">
+                    <label for="Mobile" class="form-label">Mobile</label>
+                    <input type="text" formControlName="mobile" class="form-control" id="Mobile" placeholder="Restaurent Mobile" aria-describedby="emailHelp">
+                    <span class="text-danger" *ngIf="formValue.controls['mobile'].dirty && formValue.hasError('required','mobile')">*mobile is Email</span>
+                  </div>
+                  <div class="mb-3">
+                    <label for="Address" class="form-label">Address</label>
+                    <input type="text" formControlName="address" class="form-control" id="Address" placeholder="Restaurent Address" aria-describedby="emailHelp">
+                    <span class="text-danger" *ngIf="formValue.controls['address'].dirty && formValue.hasError('required','address')">*address is required</span>
+                  </div>
+                  <div class="mb-3">
+                    <label for="Service" class="form-label">Service</label>
+                    <input type="text" formControlName="services" class="form-control" id="Service" placeholder="Restaurent Service like chai and coffe" aria-describedby="emailHelp">
+                    <span class="text-danger" *ngIf="formValue.controls['services'].dirty && formValue.hasError('required','services')">*services is required</span>
+                  </div>
+                
+               
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="clear" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button  *ngIf="showAdd"  [disabled]=formValue.invalid (click)="addRestaurent()" type="button" class="btn btn-primary" >Add Details</button>
+          <button *ngIf="showUpdate"  [disabled]=formValue.invalid type="button" class="btn btn-primary" (click)="updateRestaurent()">Update Details</button>
+        </div>
+      </div>
+    </div> 
+  </div>
+
+

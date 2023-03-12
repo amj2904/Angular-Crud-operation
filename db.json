@@ -1,0 +1,113 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "Ashwin",
+      "email": "ashwin@mastek.com",
+      "mobile": "9022373100",
+      "address": "Mulund",
+      "services": "chai"
+    },
+    {
+      "id": 2,
+      "name": "Vaibhav",
+      "email": "vaibhav@mastek.com",
+      "mobile": "90221223",
+      "address": "Mumbai",
+      "services": "coffe"
+    },
+    {
+      "id": 3,
+      "name": "Sachin",
+      "email": "sachin@mastek.com",
+      "mobile": "9987155620",
+      "address": "Mumbai",
+      "services": "drinks"
+    },
+    {
+      "id": 4,
+      "name": "ashwin",
+      "email": "ash@gmail.com",
+      "mobile": "9022311222",
+      "address": "cst",
+      "services": "chai"
+    },
+    {
+      "id": 5,
+      "name": "ash",
+      "email": "ash@gmail.com",
+      "mobile": "9987654321",
+      "address": "dadar",
+      "services": "coffe"
+    }
+  ],
+  "signup": [
+    {
+      "name": "xyz@gmail.com",
+      "email": "ash@mastek.com",
+      "mobile": "99871661122",
+      "password": "1234",
+      "id": 9
+    },
+    {
+      "name": "ash",
+      "email": "ash@mastek.com",
+      "mobile": "99871661122",
+      "password": "abc",
+      "id": 10
+    },
+    {
+      "name": "lmn",
+      "email": "lmn@gmail.com",
+      "mobile": "9022373100",
+      "password": "lmn",
+      "id": 11
+    },
+    {
+      "name": "ddd",
+      "email": "ddd@gmail.com",
+      "mobile": "99871661122",
+      "password": "ddd",
+      "id": 12
+    },
+    {
+      "name": "sam",
+      "email": "sam@mastek.com",
+      "mobile": "9022373199",
+      "password": "sam",
+      "id": 13
+    },
+    {
+      "name": "sachin",
+      "email": "sachin@gmail.com",
+      "mobile": "9982748134",
+      "password": "1234",
+      "id": 14
+    },
+    {
+      "name": "Ashwinkumar",
+      "email": "ashwin143@gmail.com",
+      "mobile": "9022373100",
+      "password": "1234",
+      "id": 15
+    }
+  ],
+  "contactus": [
+    {
+      "name": "a",
+      "email": "a@mastek.com",
+      "id": 1
+    },
+    {
+      "name": "ashwin",
+      "email": "ashwin@gmail.com",
+      "id": 7
+    }
+  ],
+  "login": [
+    {
+      "email": "ashwin@mastek.com",
+      "password": "1234"
+    }
+  ]
+}
